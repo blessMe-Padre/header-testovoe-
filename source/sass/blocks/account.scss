@@ -1,0 +1,53 @@
+.account {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.account__btn {
+    display: none;
+    border: none;
+    border: 1px solid $color-alto;
+    background-color: transparent;
+    border-radius: 65px;
+    font-size: 14px;
+    padding: 12px 19px;
+    cursor: pointer;
+    transition: border-color $trans-default, background-color $trans-default;
+    color: $color-quartz;
+    margin-left: 20px;
+
+    &:hover {
+        background-color: $color-glacier;
+        border-color: $color-glacier;
+    }
+}
+
+.account__user {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.account__user-name {
+    margin-right: 10px;
+}
+
+.account__link {
+    font-size: 14px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    border-radius: 37px;
+    padding: 6px 10px 5px;
+    white-space: nowrap;
+    transition: background-color $trans-default;
+
+    &:hover {
+        background-color: $color-glacier;
+    }
+
+    svg {
+        margin-right: 10px;
+    }
+}

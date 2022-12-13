@@ -1,1 +1,30 @@
-.header {}
+.header {
+    background-color: $color-default-white;
+    padding: 24px 0 18px;
+}
+
+.header__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+
+    img {
+        height: 24px;
+        width: 88px;
+        margin-right: 16px;
+    }
+}
+
+.header__input {
+    position: relative;
+
+    svg {
+        position: absolute;
+        top: 36%;
+        left: 15px;
+    }
+}
