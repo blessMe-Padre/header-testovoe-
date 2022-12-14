@@ -668,6 +668,10 @@ button,
   display: none;
 }
 
+strong {
+  color: #9DB9DB;
+}
+
 .input {
   width: 592px;
   height: 48px;

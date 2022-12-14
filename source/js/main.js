@@ -48,9 +48,12 @@ window.addEventListener('DOMContentLoaded', () => {
                 liItems.forEach(item => {
                     if (item.innerText.toLowerCase().search(value) == -1) {
                         item.classList.add('hide');
+                        item.innerHTML = item.innerText;
                     }
                     else {
                         item.classList.remove('hide');
+                        let str = item.innerText;
+                        item.innerHTML = insertMark(str, item.innerText.toLowerCase().search(value), value.length);
                     }
                 })
             }
@@ -60,9 +63,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
-
     }
 
+    function insertMark(string, pos, len) {
+        return string.slice(0, pos) + '<strong>' + string.slice(pos, pos + len) + '</strong>' + string.slice(pos + len);
+    }
 
     window.addEventListener('load', () => { });
 });
