@@ -664,6 +664,10 @@ button,
   margin-right: 10px;
 }
 
+.list li.hide {
+  display: none;
+}
+
 .input {
   width: 592px;
   height: 48px;
