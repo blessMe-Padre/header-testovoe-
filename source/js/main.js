@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     searchInput.addEventListener('input', (evt) => {
       let value = evt.target.value.trim();
-      const liItems = document.querySelectorAll('.list li');
+      const liItems = document.querySelectorAll('.region__list li');
 
       if (value !== 0) {
         liItems.forEach(item => {
