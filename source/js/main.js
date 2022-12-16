@@ -22,18 +22,16 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   postRequest();
 
-  //распечатывает названия регионов в main
+  //распечатывает названия регионов
   const printToHtml = (regions) => {
+    const setRegionName = (regions) => {
+      return regions.map(region => `
+            <li>${region.name}</li>
+        `);
+    }
     regionList.insertAdjacentHTML('afterbegin',
       setRegionName(regions).join('')
     );
-  }
-
-  //перебирает массив с регионами и возвращает название каждого
-  const setRegionName = (regions) => {
-    return regions.map(region => `
-            <li>${region.name}</li>
-        `);
   }
 
   const getSearch = (data) => {
