@@ -652,19 +652,59 @@ button,
 }
 
 .region {
+  position: relative;
+}
+
+.region__header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
+  max-width: 152px;
 }
 
-.region svg {
+.region__header svg {
   margin-right: 10px;
 }
 
-.list li.hide {
+.region__header-span {
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.region__block {
+  position: absolute;
+  background: #fbfbfb;
+  -webkit-box-shadow: 0 7px 38px;
+  box-shadow: 0 7px 38px;
+  border-radius: 10px;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  margin-top: 16px;
+  width: 385px;
+  padding: 24px 0 0;
+  overflow: hidden;
+}
+
+.region__input {
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.region__list {
+  max-height: 400px;
+  overflow: auto;
+  margin: 0;
+  list-style: none;
+}
+
+.region__list li.hide {
   display: none;
 }
 
@@ -704,6 +744,34 @@ strong {
 
 .input::placeholder {
   text-align: center;
+}
+
+.input--region {
+  display: block;
+  position: fixed;
+  width: 354px;
+  padding-left: 15px;
+  margin: 0 15px;
+}
+
+.input--region::-webkit-input-placeholder {
+  text-align: left;
+}
+
+.input--region::-moz-placeholder {
+  text-align: left;
+}
+
+.input--region:-ms-input-placeholder {
+  text-align: left;
+}
+
+.input--region::-ms-input-placeholder {
+  text-align: left;
+}
+
+.input--region::placeholder {
+  text-align: left;
 }
 
 .account {
@@ -809,6 +877,23 @@ strong {
 
 .nav__link:hover {
   background-color: #f1f1f1;
+}
+
+.button {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  width: 100%;
+  padding: 16px 0;
+  background: #0656b4;
+  border: 0;
+  border-radius: 0;
+  margin-top: 10px;
 }
 
 @media (max-width: 1439px) {

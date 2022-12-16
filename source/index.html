@@ -17,10 +17,21 @@
           <div class="header__logo">
             <img src="img/logo.png" alt="студика">
             <div class="region">
-              <svg width="32" height="32">
-                <use xlink:href="img/sprite/sprite.svg#city"></use>
-              </svg>
-              <span>Москва</span>
+              <div class="region__header">
+                <svg width="32" height="32">
+                  <use xlink:href="img/sprite/sprite.svg#city"></use>
+                </svg>
+                <span class="region__header-span">Москва</span>
+              </div>
+              <div class="region__block">
+                <div class="region__input">
+                  <input class="input input--region" type="text" placeholder="Регион, город, населенный пункт">
+                </div>
+                <ul class="region__list"></ul>
+                <div class="region__button">
+                  <button class="button">сохранить</button>
+                </div>
+              </div>
             </div>
           </div>
 
