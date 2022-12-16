@@ -15,6 +15,5 @@ const postRequest = () => {
       console.log('Ошибка', err);
     })
 }
-postRequest();
 
 export { postRequest }

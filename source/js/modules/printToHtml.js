@@ -1,12 +1,8 @@
 /* eslint-disable */
 
-
-/**
- * FIXME: убрать дублирование списка
- */
 const printToHtml = (regions) => {
   const regionList = document.querySelector('.region__list');
-  const regionItems = document.querySelectorAll('.region__list li');
+  const regionActive = document.querySelector('.region__active');
 
   const setRegionName = () => {
     return regions.map((region) => `
@@ -18,10 +14,29 @@ const printToHtml = (regions) => {
     setRegionName(regions).join('')
   );
 
+  /**
+   * FIXME: исправить дублирование массива
+   */
+
+
+  const regionItems = document.querySelectorAll('.region__list li');
+
   regionItems.forEach(item => {
     item.addEventListener('click', (evt) => {
-      console.log(evt.target);
+      let arr = [];
+      arr.push(evt.target);
+      console.log(arr);
+
+      const setRegionActiveName = () => {
+        return arr.map((item) => `
+        <li>${item.innerText}</li>`);
+      };
+
+      regionActive.insertAdjacentHTML('afterbegin',
+        setRegionActiveName().join(''));
     });
+
+
   });
 };
 
