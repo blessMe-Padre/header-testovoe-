@@ -10,7 +10,6 @@ const postRequest = () => {
     })
     .then(data => {
       initSearch(data)
-      // console.log(data);
     })
     .catch(err => {
       console.log('Ошибка', err);

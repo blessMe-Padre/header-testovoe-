@@ -689,7 +689,12 @@ button,
   margin-top: 16px;
   width: 385px;
   padding: 24px 0 0;
+  visibility: hidden;
   overflow: hidden;
+}
+
+.region__block.is-active {
+  visibility: visible;
 }
 
 .region__input {

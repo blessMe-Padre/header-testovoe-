@@ -30,8 +30,12 @@
   margin-top: 16px;
   width: 385px;
   padding: 24px 0 0;
-  // visibility: hidden;
+  visibility: hidden;
   overflow: hidden;
+
+  &.is-active {
+    visibility: visible;
+  }
 }
 
 .region__input {
