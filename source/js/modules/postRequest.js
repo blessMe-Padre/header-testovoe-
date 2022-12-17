@@ -5,10 +5,9 @@ const postRequest = () => {
   fetch('https://studika.ru/api/areas', {
     method: 'POST',
   })
-    .then((data) => {
-      return data.json();
-    })
+    .then((data) => data.json())
     .then(data => {
+      // console.log(data);
       initSearch(data)
     })
     .catch(err => {

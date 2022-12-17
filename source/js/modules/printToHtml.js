@@ -8,9 +8,24 @@ const printToHtml = (regions) => {
 
   const setRegionName = () => {
     return regions.map((region) => `
-          <li>${region.name}</li>
+          <li>
+            <p>${region.name}</p>
+            <p>${setCityName(region.cities, region.name)}</p>
+          </li>
       `);
   };
+
+  const setCityName = (cities, name) => {
+    if (!cities) return ''
+    return cities.map((city) => `
+            <div>
+            ${city.name}
+            <p class="small">${name}</p>
+            </div>
+
+      `).join('');
+  };
+
 
   regionList.insertAdjacentHTML('afterbegin',
     setRegionName(regions).join('')
