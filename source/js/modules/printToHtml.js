@@ -6,7 +6,6 @@ const printToHtml = (regions) => {
   const span = document.querySelector('.region__header-span');
   const button = document.querySelector('.button');
 
-
   const setRegionName = () => {
     return regions.map((region) => `
           <li>${region.name}</li>
@@ -17,14 +16,10 @@ const printToHtml = (regions) => {
     setRegionName(regions).join('')
   );
 
-  /**
-   * FIXME: исправить дублирование массива
-   */
-
-
   const regionItems = document.querySelectorAll('.region__list li');
 
   let currentRegion = [];
+  let currentRegionText = [];
 
   regionItems.forEach(item => {
     item.addEventListener('click', (evt) => {
@@ -32,23 +27,38 @@ const printToHtml = (regions) => {
       arr.push(evt.target);
 
       arr.forEach(item => {
-        currentRegion.push(item.innerText)
-      })
+        currentRegion.push(item)
+        currentRegionText.push(item.innerText)
+      });
 
       const setRegionActiveName = () => {
-        return arr.map((item) => `
-        <li>${item.innerText}</li>`);
+        return currentRegion.map((item) => `
+        <li>${item.innerText}
+          <button class="btn-remove">X</button>
+        </li>`);
       };
 
+      regionActive.innerHTML = '';
       regionActive.insertAdjacentHTML('afterbegin',
         setRegionActiveName().join(''));
+
+      const removeBtn = document.querySelectorAll('.btn-remove');
+      removeBtn.forEach(button => {
+        button.addEventListener('click', () => {
+          currentRegion.splice(button.parentNode, 1);
+          currentRegionText.splice(button.parentNode, 1);
+          regionActive.removeChild(button.parentNode);
+        })
+      })
+
     });
-
-    button.addEventListener('click', () => {
-      span.innerText = currentRegion;
-    })
-
   });
+
+  button.addEventListener('click', () => {
+    span.innerText = '';
+    span.innerText = (currentRegionText.length > 0 ? currentRegionText : 'Любой регион');
+  })
+
 };
 
 export { printToHtml }
