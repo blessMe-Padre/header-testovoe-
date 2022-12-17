@@ -3,6 +3,9 @@
 const printToHtml = (regions) => {
   const regionList = document.querySelector('.region__list');
   const regionActive = document.querySelector('.region__active');
+  const span = document.querySelector('.region__header-span');
+  const button = document.querySelector('.button');
+
 
   const setRegionName = () => {
     return regions.map((region) => `
@@ -21,11 +24,16 @@ const printToHtml = (regions) => {
 
   const regionItems = document.querySelectorAll('.region__list li');
 
+  let currentRegion = [];
+
   regionItems.forEach(item => {
     item.addEventListener('click', (evt) => {
       let arr = [];
       arr.push(evt.target);
-      console.log(arr);
+
+      arr.forEach(item => {
+        currentRegion.push(item.innerText)
+      })
 
       const setRegionActiveName = () => {
         return arr.map((item) => `
@@ -36,6 +44,9 @@ const printToHtml = (regions) => {
         setRegionActiveName().join(''));
     });
 
+    button.addEventListener('click', () => {
+      span.innerText = currentRegion;
+    })
 
   });
 };
