@@ -23,6 +23,7 @@ const printToHtml = (regions) => {
 
   regionItems.forEach(item => {
     item.addEventListener('click', (evt) => {
+      evt.stopPropagation();
       let arr = [];
       arr.push(evt.target);
 
@@ -44,7 +45,8 @@ const printToHtml = (regions) => {
 
       const removeBtn = document.querySelectorAll('.btn-remove');
       removeBtn.forEach(button => {
-        button.addEventListener('click', () => {
+        button.addEventListener('click', (evt) => {
+          evt.stopPropagation();
           currentRegion.splice(button.parentNode, 1);
           currentRegionText.splice(button.parentNode, 1);
           regionActive.removeChild(button.parentNode);
