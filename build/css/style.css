@@ -709,6 +709,18 @@ button,
   list-style: none;
 }
 
+.region__list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.region__list li {
+  margin: 0 0 15px 0;
+  padding: 0;
+  cursor: pointer;
+}
+
 .region__list li.hide {
   display: none;
 }
@@ -721,6 +733,12 @@ strong {
   padding: 0;
   margin: 0;
   font-size: 10px;
+  line-height: 12px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
 }
 
 .input {

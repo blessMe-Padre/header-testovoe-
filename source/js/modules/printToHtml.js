@@ -9,20 +9,21 @@ const printToHtml = (regions) => {
   const setRegionName = () => {
     return regions.map((region) => `
           <li>
-            <p>${region.name}</p>
-            <p>${setCityName(region.cities, region.name)}</p>
+          ${region.name}
           </li>
+          <ul>
+          ${setCityName(region.cities, region.name)}
+          </ul>
       `);
   };
 
   const setCityName = (cities, name) => {
     if (!cities) return ''
     return cities.map((city) => `
-            <div>
-            ${city.name}
-            <p class="small">${name}</p>
-            </div>
-
+    <li>
+        ${city.name}
+        <p class="small">${name}</p>
+    </li>
       `).join('');
   };
 
@@ -48,11 +49,14 @@ const printToHtml = (regions) => {
       });
 
       const setRegionActiveName = () => {
-        return currentRegion.map((item) => `
-        <li>${item.innerText}
+        return currentRegion.map((item) =>
+          `
+        <li class="region__active-li">
+        ${item.innerHTML}
           <button class="btn-remove">X</button>
         </li>`);
       };
+
 
       regionActive.innerHTML = '';
       regionActive.insertAdjacentHTML('afterbegin',
@@ -66,6 +70,11 @@ const printToHtml = (regions) => {
           currentRegionText.splice(button.parentNode, 1);
           regionActive.removeChild(button.parentNode);
         })
+      })
+
+      const regionActiveP = document.querySelectorAll('.region__active-li p');
+      regionActiveP.forEach(item => {
+        item.remove();
       })
 
     });
